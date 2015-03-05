@@ -1,0 +1,15 @@
+@name = letter_create
+@entityName = Mailsystem\Bundle\LetterBundle\Entity\Letter
+@subject = Letter [{{ entity.subject }}] created at {{ entity.createdAt|date('F j, Y, g:i A') }}
+@isSystem = 1
+@isEditable = 0
+
+<h1>Created Letter</h1>
+<p>
+    Subject : {{ entity.subject }}
+</p>
+<p>
+    Body :<br />
+    {{ entity.body }}
+</p>
+

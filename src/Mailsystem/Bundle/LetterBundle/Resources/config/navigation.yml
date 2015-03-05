@@ -1,0 +1,40 @@
+oro_menu_config:
+    items:
+        mailsystem_letter_tab:
+            label: 'mailsystem.letter.menu.tab'
+            uri: '#'
+            extras:
+                position: 10
+
+        mailsystem_letter_manage:
+            label: 'mailsystem.letter.menu.label'
+            route: 'mailsystem_letter_index'
+            extras:
+                position: 10
+                routes: ['mailsystem_letter_*']
+
+        mailsystem_letter_template_manage:
+            label: 'mailsystem.letter_template.menu.label'
+            route: 'mailsystem_letter_template_index'
+            extras:
+                position: 20
+                routes: ['mailsystem_letter_template_*']
+
+    tree:
+        application_menu:
+            children:
+                mailsystem_letter_tab:
+                    children:
+                        mailsystem_letter_template_manage: ~
+                        mailsystem_letter_manage: ~
+
+oro_titles:
+    mailsystem_letter_index: ~
+    mailsystem_letter_view: '%%subject%%'
+    mailsystem_letter_create: 'Create Letter'
+    mailsystem_letter_update: '%%subject%% - Edit'
+
+    mailsystem_letter_template_index: ~
+    mailsystem_letter_template_view: '%%subject%%'
+    mailsystem_letter_template_create: 'Create Letter Template'
+    mailsystem_letter_template_update: '%%subject%% - Edit'

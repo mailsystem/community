@@ -1,0 +1,10 @@
+mailsystem_recipient_bundle:
+  resource: "@MailsystemRecipientBundle/Controller"
+  type: annotation
+
+dashboard_mailsystem_recipient:
+    resource:     "@MailsystemRecipientBundle/Controller/Dashboard"
+    type:         annotation
+    prefix:       /dashboard
+    options:
+        expose: true

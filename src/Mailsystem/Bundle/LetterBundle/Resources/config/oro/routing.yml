@@ -1,0 +1,10 @@
+mailsystem_letter_bundle:
+  resource: "@MailsystemLetterBundle/Controller"
+  type: annotation
+
+dashboard_mailsystem_letter:
+    resource:     "@MailsystemLetterBundle/Controller/Dashboard"
+    type:         annotation
+    prefix:       /dashboard
+    options:
+        expose: true

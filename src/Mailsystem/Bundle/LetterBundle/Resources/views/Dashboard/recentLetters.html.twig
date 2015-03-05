@@ -1,0 +1,18 @@
+{% extends 'OroDashboardBundle:Dashboard:widget.html.twig' %}
+{% import 'OroDataGridBundle::macros.html.twig' as dataGrid %}
+
+{% set widgetTitle='Recent Letters' %}
+
+{% block content %}
+    {{ dataGrid.renderGrid('dashboard-mailsystem-recent-letters-grid') }}
+{% endblock %}
+
+{% block actions %}
+    {% set actions = [{
+    'url': path('mailsystem_letter_index'),
+    'type': 'link',
+    'label': 'mailsystem.letter.dashboard.recent_letters.view_all'|trans
+    }] %}
+
+    {{ parent() }}
+{% endblock %}

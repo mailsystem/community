@@ -1,0 +1,8 @@
+oro_dashboard_config:
+    widgets:
+        recent_recipients:
+            label:       Recent Recipients
+            route:       dashboard_recent_recipients
+            acl:         mailsystem_recipient_view
+            description: mailsystem.recipient.dashboard.recent_recipients.description
+            icon:   bundles/orocalendar/img/my_calendar.png

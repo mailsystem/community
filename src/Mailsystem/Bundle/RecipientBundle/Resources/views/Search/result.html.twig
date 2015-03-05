@@ -1,0 +1,19 @@
+{#
+    Available variables:
+    * entity       - recipient entity Mailsystem\Bundle\RecipientBundle\Entity\Recipient or null
+    * indexer_item - indexer item Oro\Bundle\SearchBundle\Query\Result\Item
+#}
+{% extends 'OroSearchBundle:Search:searchResultItem.html.twig' %}
+
+{% set showImage = true %}
+
+{% set recordUrl = indexer_item.recordUrl %}
+{% set image = entity ? null : null %}
+
+{% set title = entity ? entity.email : indexer_item.recordTitle %}
+{% set entityType = oro_entity_config_value(indexer_item.entityName, 'label')|trans %}
+
+{% set entityInfo = [
+{'title': 'oro.ui.created_at'|trans, 'value': entity.createdAt ? entity.createdAt|oro_format_datetime : 'N/A'},
+{'title': 'oro.ui.updated_at'|trans, 'value': entity.updatedAt ? entity.updatedAt|oro_format_datetime : 'N/A'}
+] %}

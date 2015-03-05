@@ -1,0 +1,64 @@
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as ui %}
+{% set email = entity.email %}
+{% oro_title_set({ params : {"%request.email%": email} }) %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+    'entity': entity,
+    'indexPath': path('mailsystem_recipient_index'),
+    'indexLabel': 'mailsystem.recipient.entity_plural_label'|trans,
+    'entityTitle': email
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block navButtons %}
+    {% if resource_granted('mailsystem_recipient_delete') %}
+        {{ UI.deleteButton({
+        'dataUrl': path('mailsystem_recipient_delete', {'id': entity.id}),
+        'dataRedirect': path('mailsystem_recipient_index'),
+        'aCss': 'no-hash remove-button',
+        'id': 'btn-remove-contact-request-form',
+        'dataId': entity.id,
+        'entity_label': 'mailsystem.recipient.entity_label'|trans,
+        }) }}
+        {{ UI.buttonSeparator() }}
+    {% endif %}
+
+    {{ UI.button({'path' : path('mailsystem_recipient_index'), 'title' : 'Cancel'|trans, 'label' : 'Cancel'|trans}) }}
+
+    {% if resource_granted('mailsystem_recipient_update') %}
+        {{ UI.editButton({
+        'path': path('mailsystem_recipient_update', {'id': entity.id}),
+        'entity_label': 'mailsystem.recipient.entity_label'|trans,
+        }) }}
+    {% endif %}
+
+{% endblock %}
+
+{% block content_data %}
+    {% set dataBlocks = [
+    {
+    'title': 'General'|trans,
+    'class': 'active',
+    'subblocks': [
+    {'data': [
+        ui.renderHtmlProperty('mailsystem.recipient.first_name.label'|trans, entity.firstName),
+        ui.renderHtmlProperty('mailsystem.recipient.last_name.label'|trans, entity.lastName),
+        ui.renderHtmlProperty('mailsystem.recipient.email.label'|trans, entity.email),
+        ui.renderHtmlProperty('mailsystem.recipient.phone.label'|trans, entity.phone),
+        ui.renderHtmlProperty('mailsystem.recipient.skype.label'|trans, entity.skype),
+        ui.renderHtmlProperty('mailsystem.recipient.position.label'|trans, entity.position),
+        ui.renderHtmlProperty('mailsystem.recipient.company.label'|trans, entity.company),
+        ui.renderHtmlProperty('mailsystem.recipient.birth_date.label'|trans, entity.birthDate|date('F j, Y, g:i A')),
+        ui.renderHtmlProperty('mailsystem.recipient.description.label'|trans, entity.description)
+    ]}
+    ]
+    }
+    ] %}
+
+    {% set id = 'recipientFormView' %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+    {{ parent() }}
+{% endblock %}

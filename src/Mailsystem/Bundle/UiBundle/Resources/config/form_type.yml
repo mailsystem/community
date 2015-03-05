@@ -1,0 +1,8 @@
+parameters:
+    mailsystem_tinymce_type.class: Mailsystem\Bundle\UiBundle\Form\Type\TinymceType
+
+services:
+    base.form.type.tinymce:
+        class: %mailsystem_tinymce_type.class%
+        tags:
+            - { name: form.type, alias: tinymce }

@@ -1,0 +1,18 @@
+Mailsystem\Bundle\LetterBundle\Entity\Letter:
+    properties:
+        subject:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        body:
+            - NotBlank: ~
+
+Mailsystem\Bundle\LetterBundle\Entity\LetterTemplate:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        body:
+            - NotBlank: ~
+

@@ -1,0 +1,16 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% set gridName  = 'mailsystem-recipient-grid' %}
+{% set pageTitle = 'mailsystem.recipient.entity_plural_label'|trans %}
+
+
+{% block navButtons %}
+    {% if resource_granted('mailsystem_recipient_create') %}
+        <div class="btn-group">
+            {{ UI.addButton({
+            'path' : path('mailsystem_recipient_create'),
+            'entity_label': 'mailsystem.recipient.entity_label'|trans,
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

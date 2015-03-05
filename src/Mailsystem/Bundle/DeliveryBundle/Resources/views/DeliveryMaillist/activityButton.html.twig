@@ -1,0 +1,27 @@
+{{ UI.clientButton({
+    'dataUrl': path(
+    'mailsystem_delivery_maillist_create', {
+        entityClass: oro_class_name(entity, true),
+        entityId: entity.id
+    }),
+    'aCss': 'no-hash',
+    'iCss': 'icon-desktop',
+    'dataId': entity.id,
+    'label' : 'mailsystem.delivery.delivery_maillist.delivery_to_maillist'|trans,
+    'widget' : {
+        'type' : 'dialog',
+        'multiple' : true,
+        'refresh-widget-alias': 'activity-list-widget',
+        'options' : {
+            'alias': 'deelivery-maillist-dialog',
+            'dialogOptions' : {
+                'title' : 'mailsystem.delivery.delivery_maillist.delivery_to_maillist'|trans,
+                'allowMaximize': true,
+                'allowMinimize': true,
+                'dblclick': 'maximize',
+                'maximizedHeightDecreaseBy': 'minimize-bar',
+                'width': 675
+            }
+        }
+    }
+}) }}

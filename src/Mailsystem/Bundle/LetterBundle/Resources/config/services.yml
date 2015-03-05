@@ -1,0 +1,50 @@
+parameters:
+    mailsystem_letter.entity.class: Mailsystem\Bundle\LetterBundle\Entity\Letter
+    mailsystem_letter_template.entity.class: Mailsystem\Bundle\LetterBundle\Entity\LetterTemplate
+    mailsystem_letter_form.class:   Mailsystem\Bundle\LetterBundle\Form\Type\LetterType
+    mailsystem_letter_template_form.class:   Mailsystem\Bundle\LetterBundle\Form\Type\LetterTemplateType
+    mailsystem_letter.form.handler.class:  Mailsystem\Bundle\LetterBundle\Form\Handler\LetterHandler
+    mailsystem_letter_template.form.handler.class:  Mailsystem\Bundle\LetterBundle\Form\Handler\LetterTemplateHandler
+
+services:
+    mailsystem_letter_embedded_form:
+        class: %mailsystem_letter_form.class%
+        tags:
+            - { name: form.type, alias: mailsystem_letter_request }
+
+    mailsystem_letter_template_embedded_form:
+        class: %mailsystem_letter_template_form.class%
+        tags:
+            - { name: form.type, alias: mailsystem_letter_template_request }
+
+    mailsystem_letter.form:
+        class: Symfony\Component\Form\Form
+        factory_method: createNamed
+        factory_service: form.factory
+        arguments:
+            - "mailsystem_letter_request"
+            - "mailsystem_letter_request"
+
+    mailsystem_letter_template.form:
+        class: Symfony\Component\Form\Form
+        factory_method: createNamed
+        factory_service: form.factory
+        arguments:
+            - "mailsystem_letter_template_request"
+            - "mailsystem_letter_template_request"
+
+    mailsystem_letter.form.handler:
+        class: %mailsystem_letter.form.handler.class%
+        scope: request
+        arguments:
+            - @mailsystem_letter.form
+            - @request
+            - @doctrine.orm.entity_manager
+
+    mailsystem_letter_template.form.handler:
+        class: %mailsystem_letter_template.form.handler.class%
+        scope: request
+        arguments:
+            - @mailsystem_letter_template.form
+            - @request
+            - @doctrine.orm.entity_manager

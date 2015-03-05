@@ -1,0 +1,8 @@
+oro_dashboard_config:
+    widgets:
+        recent_letters:
+            label:       Recent Letters
+            route:       dashboard_recent_letters
+            acl:         mailsystem_letter_view
+            description: mailsystem.letter.dashboard.recent_letters.description
+            icon:   bundles/orocalendar/img/my_calendar.png

@@ -1,0 +1,46 @@
+mailsystem:
+  letter:
+    dashboard:
+      recent_letters:
+        description: This widget displays recent letters
+        view_all: View All
+    menu:
+      tab: Letters
+      label: Letters Management
+    entity_label: Letter
+    entity_plural_label: Letters
+    entity:
+      saved:  Letter has been saved successfully
+    id:
+      label: Id
+    owner:
+      label: Owner
+    user_owner_id:
+      label: User Owner
+    subject:
+      label: Subject
+    body:
+      label: Body
+    lettertemplate.entity_label: Letter Template
+  letter_template:
+    dashboard:
+      recent_letter_templates:
+        description: This widget displays recent letter templates
+        view_all: View All
+    menu:
+      tab: Letters
+      label: Letter Templates Management
+    entity_label: Letter Template
+    entity_plural_label: Letter Templates
+    entity:
+      saved:  Letter Template has been saved successfully
+    id:
+      label: Id
+    owner:
+      label: Owner
+    user_owner_id:
+      label: User Owner
+    name:
+      label: Name
+    body:
+      label: Body

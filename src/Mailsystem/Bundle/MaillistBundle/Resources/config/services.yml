@@ -1,0 +1,26 @@
+parameters:
+    mailsystem_maillist.entity.class: Mailsystem\Bundle\MaillistBundle\Entity\Maillist
+    mailsystem_maillist_form.class:   Mailsystem\Bundle\MaillistBundle\Form\Type\MaillistType
+    mailsystem_maillist.form.handler.class:  Mailsystem\Bundle\MaillistBundle\Form\Handler\MaillistHandler
+
+services:
+    mailsystem_maillist_embedded_form:
+        class: %mailsystem_maillist_form.class%
+        tags:
+            - { name: form.type, alias: mailsystem_maillist_request }
+
+    mailsystem_maillist.form:
+        class: Symfony\Component\Form\Form
+        factory_method: createNamed
+        factory_service: form.factory
+        arguments:
+            - "mailsystem_maillist_request"
+            - "mailsystem_maillist_request"
+
+    mailsystem_maillist.form.handler:
+        class: %mailsystem_maillist.form.handler.class%
+        scope: request
+        arguments:
+            - @mailsystem_maillist.form
+            - @request
+            - @doctrine.orm.entity_manager

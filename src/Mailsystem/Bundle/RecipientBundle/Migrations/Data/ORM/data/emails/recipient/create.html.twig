@@ -1,0 +1,20 @@
+@name = recipient_create
+@entityName = Mailsystem\Bundle\RecipientBundle\Entity\Recipient
+@subject = Recipient {{ entity.email }} created at {{ entity.createdAt|date('F j, Y, g:i A') }}
+@isSystem = 1
+@isEditable = 0
+
+<h1>Created Recipient</h1>
+<p>
+    First Name : {{ entity.firstName }}
+</p>
+<p>
+    Last Name : {{ entity.lastName }}
+</p>
+<p>
+    Email : {{ entity.email }}
+</p>
+<p>
+    Description : {{ entity.description }}
+</p>
+

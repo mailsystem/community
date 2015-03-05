@@ -1,0 +1,18 @@
+{% extends 'OroDashboardBundle:Dashboard:widget.html.twig' %}
+{% import 'OroDataGridBundle::macros.html.twig' as dataGrid %}
+
+{% set widgetTitle='Recent Maillists' %}
+
+{% block content %}
+    {{ dataGrid.renderGrid('dashboard-mailsystem-recent-maillists-grid') }}
+{% endblock %}
+
+{% block actions %}
+    {% set actions = [{
+    'url': path('mailsystem_maillist_index'),
+    'type': 'link',
+    'label': 'mailsystem.maillist.dashboard.recent_maillists.view_all'|trans
+    }] %}
+
+    {{ parent() }}
+{% endblock %}

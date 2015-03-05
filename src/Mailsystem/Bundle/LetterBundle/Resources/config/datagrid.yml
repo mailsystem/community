@@ -1,0 +1,192 @@
+datagrid:
+  dashboard-mailsystem-recent-letters-grid:
+    source:
+      type: orm
+      acl_resource: mailsystem_letter_view
+      query:
+        select:
+          - c.id
+          - c.subject
+          - c.createdAt
+        from:
+          - { table: MailsystemLetterBundle:Letter, alias: c }
+    columns:
+      subject:
+        label: "Subject"
+      createdAt:
+        frontend_type: datetime
+        label: "Created At"
+    sorters:
+      columns:
+        subject:
+          data_name: c.subject
+        createdAt:
+          data_name: c.createdAt
+      default: { createdAt: %oro_datagrid.extension.orm_sorter.class%::DIRECTION_DESC }
+    options:
+      entityHint: maillist
+      toolbarOptions:
+        hide: true
+        pageSize:
+          items: [5]
+          default_per_page: 5
+
+  mailsystem-letter-grid:
+    source:
+      type: orm
+      acl_resource: mailsystem_letter_view
+      query:
+        select:
+          - c.id
+          - c.subject
+          - c.createdAt
+        from:
+          - { table: MailsystemLetterBundle:Letter, alias: c }
+    columns:
+      subject:
+        label: "Subject"
+      createdAt:
+        frontend_type: datetime
+        label: "Created At"
+    sorters:
+      columns:
+        subject:
+          data_name: c.subject
+        createdAt:
+          data_name: c.createdAt
+      default: { createdAt: %oro_datagrid.extension.orm_sorter.class%::DIRECTION_DESC }
+    filters:
+      columns:
+        subject:
+          type: string
+          data_name: c.subject
+        body:
+          label: Body
+          type: string
+          data_name: c.body
+        createdAt:
+          type: datetime
+          data_name: c.createdAt
+    properties:
+      id: ~
+      view_link:
+        type: url
+        route: mailsystem_letter_view
+        params: [ id ]
+      update_link:
+        type: url
+        route: mailsystem_letter_update
+        params: [ id ]
+      delete_link:
+        type: url
+        route: mailsystem_letter_delete
+        params: [ id ]
+    actions:
+      view:
+        acl_resource: mailsystem_letter_view
+        type:         navigate
+        label:        mailsystem.letter.datagrid.view
+        icon:         eye-open
+        link:         view_link
+        rowAction:    true
+      update:
+        acl_resource: mailsystem_letter_update
+        type:         navigate
+        label:        mailsystem.letter.datagrid.update
+        icon:         edit
+        link:         update_link
+      delete:
+        acl_resource: mailsystem_letter_delete
+        type:         delete
+        label:        mailsystem.letter.datagrid.delete
+        icon:         trash
+        link:         delete_link
+    options:
+      entityHint: letter
+      export: true
+      entity_pagination: true
+      toolbarOptions:
+        hide: false
+        pageSize:
+          items: [10, 25, 50, 100]
+          default_per_page: 25
+  # letter template
+  mailsystem-letter-template-grid:
+    source:
+      type: orm
+      acl_resource: mailsystem_letter_template_view
+      query:
+        select:
+          - c.id
+          - c.name
+          - c.createdAt
+        from:
+          - { table: MailsystemLetterBundle:LetterTemplate, alias: c }
+    columns:
+      name:
+        label: "Name"
+      createdAt:
+        frontend_type: datetime
+        label: "Created At"
+    sorters:
+      columns:
+        name:
+          data_name: c.name
+        createdAt:
+          data_name: c.createdAt
+      default: { createdAt: %oro_datagrid.extension.orm_sorter.class%::DIRECTION_DESC }
+    filters:
+      columns:
+        name:
+          type: string
+          data_name: c.subject
+        body:
+          label: Body
+          type: string
+          data_name: c.body
+        createdAt:
+          type: datetime
+          data_name: c.createdAt
+    properties:
+      id: ~
+      view_link:
+        type: url
+        route: mailsystem_letter_template_view
+        params: [ id ]
+      update_link:
+        type: url
+        route: mailsystem_letter_template_update
+        params: [ id ]
+      delete_link:
+        type: url
+        route: mailsystem_letter_template_delete
+        params: [ id ]
+    actions:
+      view:
+        acl_resource: mailsystem_letter_template_view
+        type:         navigate
+        label:        mailsystem.letter.datagrid.view
+        icon:         eye-open
+        link:         view_link
+        rowAction:    true
+      update:
+        acl_resource: mailsystem_letter_template_update
+        type:         navigate
+        label:        mailsystem.letter.datagrid.update
+        icon:         edit
+        link:         update_link
+      delete:
+        acl_resource: mailsystem_letter_template_delete
+        type:         delete
+        label:        mailsystem.letter.datagrid.delete
+        icon:         trash
+        link:         delete_link
+    options:
+      entityHint: letter template
+      export: true
+      entity_pagination: true
+      toolbarOptions:
+        hide: false
+        pageSize:
+          items: [10, 25, 50, 100]
+          default_per_page: 25

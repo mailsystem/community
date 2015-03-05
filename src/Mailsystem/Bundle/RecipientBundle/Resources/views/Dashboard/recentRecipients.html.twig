@@ -1,0 +1,18 @@
+{% extends 'OroDashboardBundle:Dashboard:widget.html.twig' %}
+{% import 'OroDataGridBundle::macros.html.twig' as dataGrid %}
+
+{% set widgetTitle='Recent Recipients' %}
+
+{% block content %}
+    {{ dataGrid.renderGrid('dashboard-mailsystem-recent-recipients-grid') }}
+{% endblock %}
+
+{% block actions %}
+    {% set actions = [{
+    'url': path('mailsystem_recipient_index'),
+    'type': 'link',
+    'label': 'mailsystem.recipient.dashboard.recent_recipients.view_all'|trans
+    }] %}
+
+    {{ parent() }}
+{% endblock %}

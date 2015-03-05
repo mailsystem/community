@@ -1,0 +1,62 @@
+{% extends 'OroUIBundle:actions:update.html.twig' %}
+
+{% set formAction = form.vars.value.id ? path('mailsystem_letter_update', { 'id': form.vars.value.id }) : path('mailsystem_letter_create') %}
+{% set subject = form.vars.value.subject ? form.vars.value.subject : 'N/A' %}
+{% oro_title_set({ params : {"%request.subject%": subject} }) %}
+
+{% block navButtons %}
+    {% if form.vars.value.id and resource_granted('mailsystem_letter_delete') %}
+        {{ UI.deleteButton({
+        'dataUrl': path('mailsystem_letter_delete', {'id': form.vars.value.id}),
+        'dataRedirect': path('mailsystem_letter_index'),
+        'aCss': 'no-hash remove-button',
+        'id': 'btn-remove-contact-request-form',
+        'dataId': form.vars.value.id,
+        'entity_label': 'mailsystem.letter.entity_label'|trans,
+        }) }}
+        {{ UI.buttonSeparator() }}
+    {% endif %}
+    {{ UI.button({'path' : path('mailsystem_letter_index'), 'title' : 'Cancel'|trans, 'label' : 'Cancel'|trans}) }}
+    {% set html = UI.saveAndCloseButton() %}
+    {% if resource_granted('mailsystem_letter_update') %}
+        {% set html = html ~ UI.saveAndStayButton() %}
+    {% endif %}
+    {{ UI.dropdownSaveButton({'html': html}) }}
+{% endblock %}
+
+{% block pageHeader %}
+    {% if form.vars.value.id %}
+        {% set breadcrumbs = {
+        'entity':      form.vars.value,
+        'indexPath':   path('mailsystem_letter_index'),
+        'indexLabel': 'mailsystem.letter.entity_plural_label'|trans,
+        'entityTitle': subject
+        } %}
+        {{ parent() }}
+    {% else %}
+        {% set title = 'oro.ui.create_entity'|trans({'%entityName%': 'mailsystem.letter.entity_label'|trans}) %}
+        {% include 'OroUIBundle::page_title_block.html.twig' with { title: title } %}
+    {% endif %}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set id = 'mailsystem-letter' %}
+
+    {% set dataBlocks = [{
+    'title': 'General'|trans,
+    'class': 'active',
+    'subblocks': [{
+    'title': 'Letter Information'|trans,
+    'data': [
+    form_row(form.subject),
+    form_row(form.body)
+    ]}
+    ]
+    }] %}
+
+    {% set data = {
+    'formErrors': form_errors(form)? form_errors(form) : null,
+    'dataBlocks': dataBlocks,
+    } %}
+    {{ parent() }}
+{% endblock content_data %}

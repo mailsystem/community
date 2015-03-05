@@ -1,0 +1,16 @@
+mailsystem:
+  delivery:
+    deliverymaillist:
+      entity_label: Delivery To Maillist
+      entity_plural_label: Delivery To Maillists
+      calendar_owner.label: Calendar Owner
+      id.label: Id
+      letter_template_id.label: Letter Template
+      letter_template.label: Letter Template
+      maillist_id.label: Maillist
+      maillist.label: Maillist
+      notes.label: Notes
+      organization.label: Organization
+      organization_id.label: Organization
+      owner.label: Owner
+      user_owner_id.label: Owner

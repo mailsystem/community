@@ -1,0 +1,27 @@
+oro_menu_config:
+    items:
+        mailsystem_maillist_tab:
+            label: 'mailsystem.maillist.menu.tab'
+            uri: '#'
+            extras:
+                position: 20
+
+        mailsystem_maillist_manage:
+            label: 'mailsystem.maillist.menu.label'
+            route: 'mailsystem_maillist_index'
+            extras:
+                position: 10
+                routes: ['mailsystem_maillist_*']
+
+    tree:
+        application_menu:
+            children:
+                mailsystem_maillist_tab:
+                    children:
+                        mailsystem_maillist_manage: ~
+
+oro_titles:
+    mailsystem_maillist_index: ~
+    mailsystem_maillist_view: '%%name%%'
+    mailsystem_maillist_create: 'Create Maillist'
+    mailsystem_maillist_update: '%%name%% - Edit'

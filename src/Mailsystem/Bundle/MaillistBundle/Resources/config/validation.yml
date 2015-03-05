@@ -1,0 +1,6 @@
+Mailsystem\Bundle\MaillistBundle\Entity\Maillist:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
