@@ -36,7 +36,7 @@ class LetterTest extends \PHPUnit_Framework_TestCase
         $obj->prePersist();
 
         $this->assertInstanceOf('\DateTime', $obj->getCreatedAt());
-        $this->assertNull('\DateTime', $obj->getUpdatedAt());
+        $this->assertNull($obj->getUpdatedAt());
     }
 
     public function testBeforeUpdate()
