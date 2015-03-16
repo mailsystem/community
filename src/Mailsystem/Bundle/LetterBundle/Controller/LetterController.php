@@ -2,10 +2,9 @@
 
 namespace Mailsystem\Bundle\LetterBundle\Controller;
 
-use FOS\Rest\Util\Codes;
-
 use Doctrine\ORM\EntityManager;
 
+use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -34,6 +33,8 @@ class LetterController extends Controller
      *      permission="VIEW",
      *      class="MailsystemLetterBundle:Letter"
      * )
+     * @param Letter $letter
+     * @return array
      */
     public function viewAction(Letter $letter)
     {
@@ -63,6 +64,8 @@ class LetterController extends Controller
      *      permission="EDIT",
      *      class="MailsystemLetterBundle:Letter"
      * )
+     * @param Letter $letter
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Letter $letter)
     {
@@ -92,6 +95,8 @@ class LetterController extends Controller
      *      permission="DELETE",
      *      class="MailsystemLetterBundle:Letter"
      * )
+     * @param Letter $letter
+     * @return JsonResponse
      */
     public function deleteAction(Letter $letter)
     {

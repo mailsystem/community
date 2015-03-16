@@ -2,10 +2,9 @@
 
 namespace Mailsystem\Bundle\RecipientBundle\Controller;
 
-use FOS\Rest\Util\Codes;
-
 use Doctrine\ORM\EntityManager;
 
+use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -29,7 +28,7 @@ use Mailsystem\Bundle\RecipientBundle\Entity\Recipient;
 class RecipientController extends Controller
 {
     /**
-     * View <Recipient
+     * View Recipient
      *
      * @Route("/view/{id}", name="mailsystem_recipient_view", requirements={"id"="\d+"})
      * @Template
@@ -39,6 +38,8 @@ class RecipientController extends Controller
      *      permission="VIEW",
      *      class="MailsystemRecipientBundle:Recipient"
      * )
+     * @param Recipient $recipient
+     * @return array
      */
     public function viewAction(Recipient $recipient)
     {
@@ -72,6 +73,8 @@ class RecipientController extends Controller
      *      permission="EDIT",
      *      class="MailsystemRecipientBundle:Recipient"
      * )
+     * @param Recipient $recipient
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Recipient $recipient)
     {
@@ -105,6 +108,8 @@ class RecipientController extends Controller
      *      permission="DELETE",
      *      class="MailsystemRecipientBundle:Recipient"
      * )
+     * @param Recipient $recipient
+     * @return JsonResponse
      */
     public function deleteAction(Recipient $recipient)
     {

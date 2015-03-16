@@ -2,10 +2,9 @@
 
 namespace Mailsystem\Bundle\LetterBundle\Controller;
 
-use FOS\Rest\Util\Codes;
-
 use Doctrine\ORM\EntityManager;
 
+use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
