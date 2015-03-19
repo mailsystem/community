@@ -9,8 +9,13 @@ env:
   - SYMFONY_VERSION=2.3.*
 
 before_script:
+  - pear install PHP_CodeSniffer
+  - phpenv rehash
   - composer self-update
   - phpenv config-add travis.php.ini
   - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --update-no-dev
 
-script: phpunit
+script:
+  - phpunit
+  - phpcs ./src --standard=psr2 -p --encoding=utf-8 --extensions=php
+
