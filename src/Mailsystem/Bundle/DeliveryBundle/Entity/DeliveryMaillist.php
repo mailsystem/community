@@ -16,7 +16,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 use Mailsystem\Bundle\DeliveryBundle\Model\ExtendDeliveryMaillist;
 
-
 /**
  * DeliveryMaillist
  *
