@@ -27,34 +27,55 @@ class MailsystemLetterBundle implements Migration
         /** Generate table mailsystem_letter **/
         $table = $schema->createTable('mailsystem_letter');
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
-        $table->addColumn('user_owner_id', 'integer', [
-            'notnull' => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
+        $table->addColumn(
+            'user_owner_id',
+            'integer',
+            [
+                'notnull' => false,
+                'oro_options' => [
+                    'dataaudit' => [
+                        'auditable' => true
+                    ]
                 ]
             ]
-        ]);
-        $table->addColumn('organization_id', 'integer', [
-            'notnull' => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
+        );
+        $table->addColumn(
+            'organization_id',
+            'integer',
+            [
+                'notnull' => false,
+                'oro_options' => [
+                    'dataaudit' => [
+                        'auditable' => true
+                    ]
                 ]
             ]
-        ]);
-        $table->addColumn('subject', 'string', ['notnull' => true, 'length' => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
+        );
+        $table->addColumn(
+            'subject',
+            'string',
+            [
+                'notnull' => true,
+                'length' => 255,
+                'oro_options' => [
+                    'dataaudit' => [
+                        'auditable' => true
+                    ]
                 ]
-            ]]);
-        $table->addColumn('body', 'text', ['notnull' => true,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
+            ]
+        );
+        $table->addColumn(
+            'body',
+            'text',
+            [
+                'notnull' => true,
+                'oro_options' => [
+                    'dataaudit' => [
+                        'auditable' => true
+                    ]
                 ]
-            ]]);
+            ]
+        );
         $table->addColumn('created_at', 'datetime', []);
         $table->addColumn('updated_at', 'datetime', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
