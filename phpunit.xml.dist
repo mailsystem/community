@@ -32,7 +32,6 @@
                 <directory>src/Mailsystem/Bundle/*Bundle/DataFixtures</directory>
                 <directory>src/Mailsystem/Bundle/*Bundle/Resources</directory>
                 <directory>src/Mailsystem/Bundle/*Bundle/Tests</directory>
-                <directory>vendor</directory>
             </exclude>
         </whitelist>
     </filter>
