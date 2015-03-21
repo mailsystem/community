@@ -22,6 +22,7 @@ mailsystem:
     body:
       label: Body
     lettertemplate.entity_label: Letter Template
+    lettertemplate.owner.label: User Owner
   letter_template:
     dashboard:
       recent_letter_templates:

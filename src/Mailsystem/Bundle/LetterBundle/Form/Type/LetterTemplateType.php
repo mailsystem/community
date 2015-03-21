@@ -2,6 +2,7 @@
 
 namespace Mailsystem\Bundle\LetterBundle\Form\Type;
 
+use Oro\Bundle\EmbeddedFormBundle\Form\Type\CustomLayoutFormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -11,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  *
  * @package Mailsystem\Bundle\LetterBundle\Form\Type
  */
-class LetterTemplateType extends AbstractType
+class LetterTemplateType extends AbstractType implements CustomLayoutFormInterface
 {
     /**
      * {@inheritdoc}
@@ -31,7 +32,7 @@ class LetterTemplateType extends AbstractType
             'text',
             [
                 'required' => true,
-                'label'    => 'mailsystem.letter_template.name.label'
+                'label' => 'mailsystem.letter_template.name.label'
             ]
         );
         $builder->add(
@@ -39,7 +40,7 @@ class LetterTemplateType extends AbstractType
             'tinymce',
             [
                 'required' => true,
-                'label'    => 'mailsystem.letter_template.body.label'
+                'label' => 'mailsystem.letter_template.body.label'
             ]
         );
         $builder->add(
@@ -61,5 +62,13 @@ class LetterTemplateType extends AbstractType
                 'data_class' => 'Mailsystem\Bundle\LetterBundle\Entity\LetterTemplate',
             ]
         );
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormLayout()
+    {
+        return 'MailsystemLetterBundle:LetterTemplate:form.html.twig';
     }
 }

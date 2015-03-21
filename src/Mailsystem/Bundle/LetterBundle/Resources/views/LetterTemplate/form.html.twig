@@ -1,0 +1,27 @@
+{{ form_start(form, {'attr': {'id': form.vars.name, 'novalidate': 'novalidate' }}) }}
+<div class="wrapper">
+    <div class="row-group">
+        <div class="box">
+            {{ form_row(form.owner) }}
+        </div>
+        <div class="box">
+            {{ form_row(form.name) }}
+        </div>
+    </div>
+    <div class="row-group">
+        <div class="box">
+            {{ form_row(form.body) }}
+        </div>
+    </div>
+    <div class="row-group">
+        <div class="box">
+            <span>* Indicates Required Fields</span>
+        </div>
+        <div class="box">
+            <div class="submit-row">
+                {{ form_widget(form.submit) }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -27,10 +27,10 @@
 {% block pageHeader %}
     {% if form.vars.value.id %}
         {% set breadcrumbs = {
-        'entity':      form.vars.value,
-        'indexPath':   path('mailsystem_letter_template_index'),
-        'indexLabel': 'mailsystem.letter_template.entity_plural_label'|trans,
-        'entityTitle': subject
+            'entity':      form.vars.value,
+            'indexPath':   path('mailsystem_letter_template_index'),
+            'indexLabel': 'mailsystem.letter_template.entity_plural_label'|trans,
+            'entityTitle': subject
         } %}
         {{ parent() }}
     {% else %}
@@ -48,15 +48,15 @@
     'subblocks': [{
     'title': 'Letter Template Information'|trans,
     'data': [
-    form_row(form.name),
-    form_row(form.body)
+        form_row(form.name),
+        form_row(form.body)
     ]}
     ]
     }] %}
 
     {% set data = {
-    'formErrors': form_errors(form)? form_errors(form) : null,
-    'dataBlocks': dataBlocks,
+        'formErrors': form_errors(form)? form_errors(form) : null,
+        'dataBlocks': dataBlocks,
     } %}
     {{ parent() }}
 {% endblock content_data %}
