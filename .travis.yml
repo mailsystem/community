@@ -2,8 +2,6 @@ language: php
 
 php:
     - 5.4
-    - 5.5
-    - 5.6
 
 env:
   - SYMFONY_VERSION=2.3.*
@@ -13,7 +11,7 @@ before_script:
   - phpenv rehash
   - composer self-update
   - phpenv config-add travis.php.ini
-  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --dev
+  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist
 
 script:
   - mkdir -p build/logs
@@ -21,4 +19,4 @@ script:
   - phpcs ./src --standard=psr2 -p --encoding=utf-8 --extensions=php
 
 after_script:
- - php vendor/bin/coveralls -v
+ - php ./vendor/bin/coveralls -v
