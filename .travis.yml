@@ -13,9 +13,12 @@ before_script:
   - phpenv rehash
   - composer self-update
   - phpenv config-add travis.php.ini
-  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --update-no-dev
+  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --dev --no-interaction
 
 script:
-  - phpunit
+  - mkdir -p build/logs
+  - phpunit --coverage-clover build/logs/clover.xml
   - phpcs ./src --standard=psr2 -p --encoding=utf-8 --extensions=php
 
+after_script:
+ - php vendor/bin/coveralls -v
