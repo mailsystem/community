@@ -13,7 +13,7 @@ before_script:
   - phpenv rehash
   - composer self-update
   - phpenv config-add travis.php.ini
-  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist
+  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --update
 
 script:
   - mkdir -p build/logs
