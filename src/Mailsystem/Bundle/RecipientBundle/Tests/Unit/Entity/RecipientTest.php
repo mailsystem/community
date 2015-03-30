@@ -19,8 +19,17 @@ class RecipientTest extends \PHPUnit_Framework_TestCase
     public function getSetDataProvider()
     {
         $now = new \DateTime('now');
+        $owner = $this->getMockBuilder('Oro\Bundle\UserBundle\Entity\User')
+            ->disableOriginalConstructor()
+            ->getMock();
 
-        return array(
+        $organization = $this->getMockBuilder('Oro\Bundle\OrganizationBundle\Entity\Organization')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        return [
+            'owner' => ['owner', $owner, $owner],
+            'organization' => ['organization', $organization, $organization],
             'firstName' => array('firstName', 'firstName', 'firstName'),
             'lastName' => array('lastName', 'lastName', 'lastName'),
             'email' => array('email', 'email@email.com', 'email@email.com'),
@@ -32,7 +41,7 @@ class RecipientTest extends \PHPUnit_Framework_TestCase
             'description' => array('description', 'description', 'description'),
             'createdAt' => array('createdAt', $now, $now),
             'updatedAt' => array('updatedAt', $now, $now),
-        );
+        ];
     }
 
     public function testBeforeSave()
@@ -55,5 +64,24 @@ class RecipientTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\DateTime', $obj->getUpdatedAt());
         $this->assertNull($obj->getCreatedAt());
+    }
+
+    /**
+     * test maillist functionality for recipient
+     */
+    public function testMaillist()
+    {
+        $maillist = $this->getMockBuilder('Mailsystem\Bundle\MaillistBundle\Entity\Maillist')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $obj = new Recipient();
+        $this->assertNull($obj->getCreatedAt());
+        $this->assertNull($obj->getUpdatedAt());
+        $this->assertEmpty($obj->getMaillists());
+        $obj->addMaillist($maillist);
+        $this->assertNotEmpty($obj->getMaillists());
+        $obj->removeMaillist($maillist);
+        $this->assertEmpty($obj->getMaillists());
     }
 }

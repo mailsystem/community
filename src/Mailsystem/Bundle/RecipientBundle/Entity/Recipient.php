@@ -5,6 +5,7 @@ namespace Mailsystem\Bundle\RecipientBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Mailsystem\Bundle\MaillistBundle\Entity\Maillist;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
 
@@ -664,11 +665,11 @@ class Recipient
     /**
      * Add Maillist
      *
-     * @param \Mailsystem\Bundle\MaillistBundle\Entity\Maillist $maillist
+     * @param Maillist $maillist
      *
      * @return Recipient
      */
-    public function addMaillist(\Mailsystem\Bundle\MaillistBundle\Entity\Maillist $maillist)
+    public function addMaillist(Maillist $maillist)
     {
         $this->maillists[] = $maillist;
 
@@ -678,9 +679,9 @@ class Recipient
     /**
      * Remove Maillist
      *
-     * @param \Mailsystem\Bundle\MaillistBundle\Entity\Maillist $maillist
+     * @param Maillist $maillist
      */
-    public function removeMaillist(\Mailsystem\Bundle\MaillistBundle\Entity\Maillist $maillist)
+    public function removeMaillist(Maillist $maillist)
     {
         $this->maillists->removeElement($maillist);
     }

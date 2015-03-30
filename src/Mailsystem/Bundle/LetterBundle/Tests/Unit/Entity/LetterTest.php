@@ -12,20 +12,30 @@ class LetterTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new Letter();
 
-        call_user_func_array(array($obj, 'set' . ucfirst($property)), array($value));
-        $this->assertEquals($expected, call_user_func_array(array($obj, 'get' . ucfirst($property)), array()));
+        call_user_func_array([$obj, 'set' . ucfirst($property)], [$value]);
+        $this->assertEquals($expected, call_user_func_array([$obj, 'get' . ucfirst($property)], []));
     }
 
     public function getSetDataProvider()
     {
         $now = new \DateTime('now');
 
-        return array(
-            'subject' => array('subject', 'subject', 'subject'),
-            'body' => array('body', 'body', 'body'),
-            'createdAt' => array('createdAt', $now, $now),
-            'updatedAt' => array('updatedAt', $now, $now),
-        );
+        $owner = $this->getMockBuilder('Oro\Bundle\UserBundle\Entity\User')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $organization = $this->getMockBuilder('Oro\Bundle\OrganizationBundle\Entity\Organization')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        return [
+            'owner' => ['owner', $owner, $owner],
+            'organization' => ['organization', $organization, $organization],
+            'subject' => ['subject', 'subject', 'subject'],
+            'body' => ['body', 'body', 'body'],
+            'createdAt' => ['createdAt', $now, $now],
+            'updatedAt' => ['updatedAt', $now, $now],
+        ];
     }
 
     public function testBeforeSave()
