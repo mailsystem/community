@@ -20,12 +20,22 @@ class MaillistTest extends \PHPUnit_Framework_TestCase
     {
         $now = new \DateTime('now');
 
-        return array(
-            'name' => array('name', 'name', 'name'),
-            'description' => array('description', 'description', 'description'),
-            'createdAt' => array('createdAt', $now, $now),
-            'updatedAt' => array('updatedAt', $now, $now),
-        );
+        $owner = $this->getMockBuilder('Oro\Bundle\UserBundle\Entity\User')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $organization = $this->getMockBuilder('Oro\Bundle\OrganizationBundle\Entity\Organization')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        return [
+            'owner' => ['owner', $owner, $owner],
+            'organization' => ['organization', $organization, $organization],
+            'name' => ['name', 'name', 'name'],
+            'description' => ['description', 'description', 'description'],
+            'createdAt' => ['createdAt', $now, $now],
+            'updatedAt' => ['updatedAt', $now, $now],
+        ];
     }
 
     public function testBeforeSave()
