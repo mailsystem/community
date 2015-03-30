@@ -2,6 +2,15 @@ mailsystem_recipient_bundle:
   resource: "@MailsystemRecipientBundle/Controller"
   type: annotation
 
+mailsystem_recipient_api_recipient:
+    resource:     "@MailsystemRecipientBundle/Controller/Api/Rest/RecipientController.php"
+    type:         rest
+    prefix:       api/rest/{version}/
+    requirements:
+        version:  latest|v1
+    defaults:
+        version:  latest
+
 dashboard_mailsystem_recipient:
     resource:     "@MailsystemRecipientBundle/Controller/Dashboard"
     type:         annotation
