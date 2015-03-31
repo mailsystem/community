@@ -33,6 +33,7 @@
                 <directory>src/Mailsystem/Bundle/*Bundle/Resources</directory>
                 <directory>src/Mailsystem/Bundle/*Bundle/Migrations</directory>
                 <directory>src/Mailsystem/Bundle/*Bundle/Tests</directory>
+                <directory>src/Mailsystem/Bundle/*Bundle/Form</directory>
                 <directory>src/Mailsystem/Bundle/*Bundle/DependencyInjection</directory>
             </exclude>
         </whitelist>
