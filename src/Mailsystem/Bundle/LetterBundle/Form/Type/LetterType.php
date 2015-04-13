@@ -31,15 +31,18 @@ class LetterType extends AbstractType
             'text',
             [
                 'required' => true,
-                'label'    => 'mailsystem.letter.subject.label'
+                'label' => 'mailsystem.letter.subject.label'
             ]
         );
         $builder->add(
             'body',
-            'tinymce',
+            'textarea',
             [
                 'required' => true,
-                'label'    => 'mailsystem.letter.body.label'
+                'label' => 'mailsystem.letter.body.label',
+                'attr' => [
+                    'class' => 'ckeditor',
+                ]
             ]
         );
         $builder->add(

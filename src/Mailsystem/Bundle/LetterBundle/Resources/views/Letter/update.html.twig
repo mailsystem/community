@@ -41,7 +41,6 @@
 
 {% block content_data %}
     {% set id = 'mailsystem-letter' %}
-
     {% set dataBlocks = [{
     'title': 'General'|trans,
     'class': 'active',
@@ -58,5 +57,6 @@
     'formErrors': form_errors(form)? form_errors(form) : null,
     'dataBlocks': dataBlocks,
     } %}
+    <script src="//cdn.ckeditor.com/4.4.7/full-all/ckeditor.js"></script>
     {{ parent() }}
 {% endblock content_data %}
