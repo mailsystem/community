@@ -16,7 +16,8 @@
     }
   ],
   "require": {
-    "oro/platform": "1.6.*"
+    "oro/platform": "1.6.*",
+    "satooshi/php-coveralls": "dev-master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
