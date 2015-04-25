@@ -4,6 +4,7 @@ namespace Mailsystem\Bundle\LetterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Mailsystem\Bundle\LetterBundle\Model\ExtendLetter;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
 
@@ -41,7 +42,7 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
  *  }
  * )
  */
-class Letter
+class Letter extends ExtendLetter
 {
     /**
      * @var integer
