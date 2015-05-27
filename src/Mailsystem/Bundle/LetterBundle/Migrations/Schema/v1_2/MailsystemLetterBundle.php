@@ -6,37 +6,32 @@ use Doctrine\DBAL\Schema\Schema;
 use Oro\Bundle\MigrationBundle\Migration\Migration;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
 
-use Oro\Bundle\ActivityBundle\Migration\Extension\ActivityExtension;
-use Oro\Bundle\ActivityBundle\Migration\Extension\ActivityExtensionAwareInterface;
+use Oro\Bundle\AttachmentBundle\Migration\Extension\AttachmentExtension;
+use Oro\Bundle\AttachmentBundle\Migration\Extension\AttachmentExtensionAwareInterface;
 
-class MailsystemLetterBundle implements Migration, ActivityExtensionAwareInterface
+class MailsystemLetterBundle implements Migration, AttachmentExtensionAwareInterface
 {
-    /** @var ActivityExtension */
-    protected $activityExtension;
+    /** @var AttachmentExtension */
+    protected $attachmentExtension;
 
     /**
      * {@inheritdoc}
      */
-    public function setActivityExtension(ActivityExtension $activityExtension)
+    public function setAttachmentExtension(AttachmentExtension $attachmentExtension)
     {
-        $this->activityExtension = $activityExtension;
+        $this->attachmentExtension = $attachmentExtension;
     }
+
     /**
      * {@inheritdoc}
      */
     public function up(Schema $schema, QueryBag $queries)
     {
-        self::addActivityAssociations($schema, $this->activityExtension);
-    }
-
-    /**
-     * Enables Attachment activity for Letter entity
-     *
-     * @param Schema            $schema
-     * @param ActivityExtension $activityExtension
-     */
-    public static function addActivityAssociations(Schema $schema, ActivityExtension $activityExtension)
-    {
-        $activityExtension->addActivityAssociation($schema, 'oro_attachment', 'mailsystem_letter', true);
+        $this->attachmentExtension->addAttachmentAssociation(
+            $schema,
+            'mailsystem_letter', // entity table, e.g. oro_user, orocrm_contact etc.
+            [], // optional, allowed MIME types of attached files, if empty - global configuration will be used
+            2 // optional, max allowed file size in megabytes, by default 1 Mb
+        );
     }
 }
