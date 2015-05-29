@@ -17,6 +17,7 @@
   ],
   "require": {
     "oro/platform": "1.7.*",
+    "doctrine/data-fixtures": "1.0.0",
     "satooshi/php-coveralls": "dev-master"
   },
   "minimum-stability": "dev",
