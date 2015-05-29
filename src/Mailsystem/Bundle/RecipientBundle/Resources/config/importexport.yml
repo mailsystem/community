@@ -1,8 +1,16 @@
 parameters:
-    mailsystem_recipient.importexport.template_fixture.recipient.class:        Mailsystem\Bundle\RecipientBundle\ImportExport\TemplateFixture\RecipientFixture
-
+    mailsystem_recipient.importexport.template_fixture.recipient.class: Mailsystem\Bundle\RecipientBundle\ImportExport\TemplateFixture\RecipientFixture
+    mailsystem_recipient.importexport.normalizer.recipient.class: Mailsystem\Bundle\RecipientBundle\ImportExport\Serializer\Normalizer\RecipientNormalizer
 
 services:
+    # Normalizer
+    mailsystem_recipient.importexport.normalizer.recipient:
+        class: %mailsystem_recipient.importexport.normalizer.recipient.class%
+        parent: oro_importexport.serializer.configurable_entity_normalizer
+        tags:
+            - { name: oro_importexport.normalizer }
+
+
     # Template fixture
     mailsystem_recipient.importexport.template_fixture.recipient:
         class: %mailsystem_recipient.importexport.template_fixture.recipient.class%
@@ -33,9 +41,11 @@ services:
         tags:
             - { name: oro_importexport.processor, type: export_template, entity: %mailsystem_recipient.entity.class%, alias: mailsystem_recipient_recipient }
 
+
     # Strategy
     mailsystem_recipient.importexport.strategy.recipient.add_or_replace:
         parent: oro_importexport.strategy.configurable_add_or_replace
+
 
     # Import processor
     mailsystem_recipient.importexport.processor.import.recipient:

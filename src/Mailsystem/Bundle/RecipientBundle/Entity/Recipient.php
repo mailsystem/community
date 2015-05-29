@@ -39,7 +39,7 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
  *      },
  *      "dataaudit"={
  *        "auditable"=true
- *      },
+ *      }
  *  }
  * )
  */
@@ -63,9 +63,6 @@ class Recipient
      * @ORM\JoinColumn(name="user_owner_id", referencedColumnName="id", onDelete="SET NULL")
      * @ConfigField(
      * defaultValues={
-     *   "importexport"={
-     *      "order"=0
-     *   },
      *   "dataaudit"={
      *      "auditable"=true
      *    }
@@ -92,7 +89,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=1
+     *      "order"=10
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -113,7 +110,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=2
+     *      "order"=20
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -134,7 +131,8 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=3
+     *      "order"=30,
+     *      "identity"=true
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -155,7 +153,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=4
+     *      "order"=40
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -176,7 +174,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=5
+     *      "order"=50
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -197,7 +195,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=6
+     *      "order"=60
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -218,7 +216,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=7
+     *      "order"=70
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -239,7 +237,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=8
+     *      "order"=80
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -258,7 +256,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=9
+     *      "order"=90
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -274,6 +272,12 @@ class Recipient
      * @var ArrayCollection $maillists Maillists, assigned to Recipient
      * @ORM\ManyToMany(targetEntity="Mailsystem\Bundle\MaillistBundle\Entity\Maillist", inversedBy="recipients")
      * @ORM\JoinTable(name="mailsystem_maillist_recipient")
+     * @ConfigField(
+     * defaultValues={
+     *   "importexport"={
+     *      "excluded"=true
+     *   }
+     * })
      */
     protected $maillists;
 
@@ -284,7 +288,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=10
+     *      "excluded"=true
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -304,7 +308,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=11
+     *      "excluded"=true
      *   },
      *   "email"={
      *      "available_in_template"=true

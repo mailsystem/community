@@ -39,13 +39,8 @@ class RecipientFixture extends AbstractTemplateRepository implements TemplateFix
      */
     public function fillEntityData($key, $entity)
     {
-        $userRepo = $this->templateManager->getEntityRepository('Oro\Bundle\UserBundle\Entity\User');
-        $organizationRepo = $this->templateManager
-            ->getEntityRepository('Oro\Bundle\OrganizationBundle\Entity\Organization');
         switch ($key) {
             case 'Jerry Coleman':
-                //$entity->setOwner($userRepo->getEntity(1));
-                $entity->setOrganization($organizationRepo->getEntity('default'));
                 $entity->setFirstName('Jerry');
                 $entity->setLastName('Coleman');
                 $entity->setEmail('jerry@coleman.name');
@@ -55,9 +50,9 @@ class RecipientFixture extends AbstractTemplateRepository implements TemplateFix
                 $entity->setCompany('company');
                 $entity->setBirthDate(new \DateTime());
                 $entity->setDescription('description');
-                $entity->setCreatedAt(new \DateTime());
 
                 return;
+                break;
         }
         parent::fillEntityData($key, $entity);
     }
