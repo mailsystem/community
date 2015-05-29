@@ -44,7 +44,7 @@ class RecipientFixture extends AbstractTemplateRepository implements TemplateFix
             ->getEntityRepository('Oro\Bundle\OrganizationBundle\Entity\Organization');
         switch ($key) {
             case 'Jerry Coleman':
-                $entity->setOwner($userRepo->getEntity('admin'));
+                //$entity->setOwner($userRepo->getEntity(1));
                 $entity->setOrganization($organizationRepo->getEntity('default'));
                 $entity->setFirstName('Jerry');
                 $entity->setLastName('Coleman');

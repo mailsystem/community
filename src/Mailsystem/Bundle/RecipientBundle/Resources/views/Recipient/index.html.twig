@@ -5,6 +5,14 @@
 
 
 {% block navButtons %}
+    {% include 'OroImportExportBundle:ImportExport:buttons.html.twig' with {
+        entity_class: entity_class,
+        exportProcessor: 'mailsystem_recipient_recipient',
+        exportTemplateProcessor: 'mailsystem_recipient_recipient',
+        importProcessor: 'mailsystem_recipient_recipient.add_or_replace',
+        importTitle: 'oro.importexport.import.entity'|trans({'%entityName%': 'mailsystem.recipient.entity_plural_label'|trans}),
+        dataGridName: gridName
+    } %}
     {% if resource_granted('mailsystem_recipient_create') %}
         <div class="btn-group">
             {{ UI.addButton({

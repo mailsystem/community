@@ -63,6 +63,9 @@ class Recipient
      * @ORM\JoinColumn(name="user_owner_id", referencedColumnName="id", onDelete="SET NULL")
      * @ConfigField(
      * defaultValues={
+     *   "importexport"={
+     *      "order"=0
+     *   },
      *   "dataaudit"={
      *      "auditable"=true
      *    }
@@ -89,7 +92,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=1
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -110,7 +113,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=2
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -131,7 +134,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=3
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -152,7 +155,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=4
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -173,7 +176,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=5
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -194,7 +197,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=6
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -215,7 +218,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=7
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -236,7 +239,7 @@ class Recipient
      * @ConfigField(
      * defaultValues={
      *   "importexport"={
-     *      "order"=0
+     *      "order"=8
      *   },
      *   "email"={
      *      "available_in_template"=true
@@ -254,6 +257,9 @@ class Recipient
      * @ORM\Column(type="text", nullable=true)
      * @ConfigField(
      * defaultValues={
+     *   "importexport"={
+     *      "order"=9
+     *   },
      *   "email"={
      *      "available_in_template"=true
      *   },
@@ -277,6 +283,9 @@ class Recipient
      * @ORM\Column(name="created_at", type="datetime")
      * @ConfigField(
      * defaultValues={
+     *   "importexport"={
+     *      "order"=10
+     *   },
      *   "email"={
      *      "available_in_template"=true
      *   },
@@ -294,6 +303,9 @@ class Recipient
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      * @ConfigField(
      * defaultValues={
+     *   "importexport"={
+     *      "order"=11
+     *   },
      *   "email"={
      *      "available_in_template"=true
      *   },
@@ -355,6 +367,19 @@ class Recipient
     }
 
     /**
+     * Get Id Of Owner
+     * @return int|mixed
+     */
+    public function getUserOwnerId()
+    {
+        if ($this->owner instanceof User) {
+            return $this->owner->getId();
+        } else {
+            return 0;
+        }
+    }
+
+    /**
      * Set organization
      *
      * @param Organization $organization
@@ -376,6 +401,19 @@ class Recipient
     public function getOrganization()
     {
         return $this->organization;
+    }
+
+    /**
+     * Get organization id
+     * @return int
+     */
+    public function getOrganizationId()
+    {
+        if ($this->getOrganization() instanceof Organization) {
+            $this->getOrganization()->getId();
+        } else {
+            return 0;
+        }
     }
 
     /**
