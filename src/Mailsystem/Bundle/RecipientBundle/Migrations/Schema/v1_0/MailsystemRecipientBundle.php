@@ -35,106 +35,22 @@ class MailsystemRecipientBundle implements Migration
         /** Generate table mailsystem_recipient **/
         $table = $schema->createTable('mailsystem_recipient');
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
-        $table->addColumn('user_owner_id', 'integer', [
-            'notnull'     => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('organization_id', 'integer', [
-            'notnull'     => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('first_name', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('last_name', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('email', 'string', [
-            'notnull'     => true,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('phone', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('skype', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('position', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('company', 'string', [
-            'notnull'     => false,
-            'length'      => 255,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('birth_date', 'date', [
-            'notnull'     => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
-        $table->addColumn('description', 'text', [
-            'notnull'     => false,
-            'oro_options' => [
-                'dataaudit' => [
-                    'auditable' => true
-                ]
-            ]
-        ]);
+        $table->addColumn('user_owner_id', 'integer', ['notnull' => false]);
+        $table->addColumn('organization_id', 'integer', ['notnull' => false]);
+        $table->addColumn('first_name', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('last_name', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('email', 'string', ['notnull' => true, 'length' => 255]);
+        $table->addColumn('phone', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('skype', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('position', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('company', 'string', ['notnull' => false, 'length' => 255]);
+        $table->addColumn('birth_date', 'date', ['notnull' => false]);
+        $table->addColumn('description', 'text', ['notnull' => false]);
         $table->addColumn('created_at', 'datetime', []);
         $table->addColumn('updated_at', 'datetime', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
-        $table->addIndex(['user_owner_id'], 'IDX_MAILSYSTEM_RECIPIENT_OWNER', []);
-        $table->addIndex(['organization_id'], 'IDX_MAILSYSTEM_RECIPIENT_ORGANIZATION', []);
+        $table->addIndex(['user_owner_id'], 'IDX_MS_RECIPIENT_OWNER', []);
+        $table->addIndex(['organization_id'], 'IDX_MS_RECIPIENT_ORGANIZATION', []);
         /** End of generate table mailsystem_recipient **/
     }
 
@@ -147,14 +63,8 @@ class MailsystemRecipientBundle implements Migration
     {
         /** Generate table mailsystem_maillist_recipient **/
         $table = $schema->createTable('mailsystem_maillist_recipient');
-        $table->addColumn('maillist_id', 'integer', [
-            'notnull'     => true,
-            'oro_options' => []
-        ]);
-        $table->addColumn('recipient_id', 'integer', [
-            'notnull'     => true,
-            'oro_options' => []
-        ]);
+        $table->addColumn('maillist_id', 'integer', ['notnull' => true]);
+        $table->addColumn('recipient_id', 'integer', ['notnull' => true]);
         $table->setPrimaryKey(['maillist_id', 'recipient_id']);
         /** End of generate table mailsystem_maillist_recipient **/
     }
@@ -190,7 +100,8 @@ class MailsystemRecipientBundle implements Migration
      */
     public static function mailsystemMaillistRecipientForeignKeys(
         Schema $schema
-    ) {
+    )
+    {
         /** Generate foreign keys for table mailsystem_maillist_recipient **/
         $table = $schema->getTable('mailsystem_maillist_recipient');
         $table->addForeignKeyConstraint(

@@ -20,28 +20,31 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(
  *      name="mailsystem_recipient",
- *      indexes={@ORM\Index(name="IDX_MAILSYSTEM_RECIPIENT_OWNER",columns={"user_owner_id"})}
+ *      indexes={@ORM\Index(name="IDX_MS_RECIPIENT_OWNER",columns={"user_owner_id"})}
  * )
  * @Config(
- *  routeName="mailsystem_recipient_index",
- *  defaultValues={
- *      "entity"={"icon"="icon-envelope"},
- *      "ownership"={
- *        "owner_type"="USER",
- *        "owner_field_name"="owner",
- *        "owner_column_name"="user_owner_id",
- *        "organization_field_name"="organization",
- *        "organization_column_name"="organization_id"
- *      },
- *      "security"={
- *          "type"="ACL",
- *          "group_name"=""
- *      },
- *      "dataaudit"={
- *        "auditable"=true
+ *      routeName="mailsystem_recipient_index",
+ *      defaultValues={
+ *          "entity"={"icon"="icon-envelope"},
+ *          "ownership"={
+ *              "owner_type"="USER",
+ *              "owner_field_name"="owner",
+ *              "owner_column_name"="user_owner_id",
+ *              "organization_field_name"="organization",
+ *              "organization_column_name"="organization_id"
+ *          },
+ *          "security"={
+ *              "type"="ACL",
+ *              "group_name"=""
+ *          },
+ *          "dataaudit"={
+ *              "auditable"=true
+ *          }
  *      }
- *  }
  * )
+ *
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Recipient
 {
@@ -53,6 +56,13 @@ class Recipient
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ConfigField(
+     *  defaultValues={
+     *      "importexport"={
+     *          "order"=0
+     *      }
+     *  }
+     * )
      */
     protected $id;
 
@@ -62,11 +72,14 @@ class Recipient
      * @ORM\ManyToOne(targetEntity="Oro\Bundle\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_owner_id", referencedColumnName="id", onDelete="SET NULL")
      * @ConfigField(
-     * defaultValues={
-     *   "dataaudit"={
-     *      "auditable"=true
-     *    }
-     * })
+     *      defaultValues={
+     *          "dataaudit"={"auditable"=true},
+     *          "importexport"={
+     *              "order"=140,
+     *              "short"=true
+     *          }
+     *      }
+     * )
      */
     protected $owner;
 
@@ -87,17 +100,14 @@ class Recipient
      *
      * @ORM\Column(name="first_name", type="text", nullable=true)
      * @ConfigField(
-     * defaultValues={
-     *   "importexport"={
-     *      "order"=10
-     *   },
-     *   "email"={
-     *      "available_in_template"=true
-     *   },
-     *   "dataaudit"={
-     *      "auditable"=true
-     *    }
-     * })
+     *  defaultValues={
+     *      "dataaudit"={"auditable"=true},
+     *      "email"={"available_in_template"=true},
+     *      "importexport"={
+     *          "order"=10
+     *      }
+     *  }
+     * )
      */
     protected $firstName;
 
@@ -108,7 +118,7 @@ class Recipient
      *
      * @ORM\Column(name="last_name", type="text", nullable=true)
      * @ConfigField(
-     * defaultValues={
+     *  defaultValues={
      *   "importexport"={
      *      "order"=20
      *   },
@@ -371,19 +381,6 @@ class Recipient
     }
 
     /**
-     * Get Id Of Owner
-     * @return int|mixed
-     */
-    public function getUserOwnerId()
-    {
-        if ($this->owner instanceof User) {
-            return $this->owner->getId();
-        } else {
-            return 0;
-        }
-    }
-
-    /**
      * Set organization
      *
      * @param Organization $organization
@@ -405,19 +402,6 @@ class Recipient
     public function getOrganization()
     {
         return $this->organization;
-    }
-
-    /**
-     * Get organization id
-     * @return int
-     */
-    public function getOrganizationId()
-    {
-        if ($this->getOrganization() instanceof Organization) {
-            $this->getOrganization()->getId();
-        } else {
-            return 0;
-        }
     }
 
     /**
