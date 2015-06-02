@@ -98,9 +98,7 @@ class MailsystemRecipientBundle implements Migration
      *
      * @param Schema $schema
      */
-    public static function mailsystemMaillistRecipientForeignKeys(
-        Schema $schema
-    )
+    public static function mailsystemMaillistRecipientForeignKeys(Schema $schema)
     {
         /** Generate foreign keys for table mailsystem_maillist_recipient **/
         $table = $schema->getTable('mailsystem_maillist_recipient');

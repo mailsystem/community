@@ -30,7 +30,7 @@ class MailsystemLetterBundle implements Migration
         $table->addColumn('user_owner_id', 'integer', ['notnull' => false]);
         $table->addColumn('organization_id', 'integer', ['notnull' => false]);
         $table->addColumn('subject', 'string', ['notnull' => true, 'length' => 255]);
-        $table->addColumn('body','text',['notnull' => true]);
+        $table->addColumn('body', 'text', ['notnull' => true]);
         $table->addColumn('created_at', 'datetime', []);
         $table->addColumn('updated_at', 'datetime', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
