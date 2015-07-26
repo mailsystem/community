@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "oro/platform": "1.7.*",
+    "oro/platform": "dev-master",
     "doctrine/data-fixtures": "1.0.0",
     "satooshi/php-coveralls": "dev-master"
   },
