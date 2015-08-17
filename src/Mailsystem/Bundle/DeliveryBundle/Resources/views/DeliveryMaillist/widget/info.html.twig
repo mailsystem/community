@@ -1,9 +1,0 @@
-{% import 'OroUIBundle::macros.html.twig' as ui %}
-
-<div class="widget-content form-horizontal box-content row-fluid">
-    <div class="responsive-block">
-        {{ ui.renderProperty('mailsystem.delivery.deliverymaillist.letter_template.label'|trans, entity.letterTemplate.name) }}
-        {{ ui.renderProperty('mailsystem.delivery.deliverymaillist.maillist.label'|trans, entity.maillist.name) }}
-        {{ ui.renderHtmlProperty('mailsystem.delivery.deliverymaillist.notes.labe'|trans, entity.notes | nl2br ) }}
-    </div>
-</div>
