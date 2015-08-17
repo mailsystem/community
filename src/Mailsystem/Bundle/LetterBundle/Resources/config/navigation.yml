@@ -1,32 +1,26 @@
 oro_menu_config:
     items:
-        mailsystem_letter_tab:
-            label: 'mailsystem.letter.menu.tab'
-            uri: '#'
-            extras:
-                position: 10
-
-        mailsystem_letter_manage:
+        mailsystem_letter:
             label: 'mailsystem.letter.menu.label'
             route: 'mailsystem_letter_index'
             extras:
-                position: 10
+                position: 100
                 routes: ['mailsystem_letter_*']
 
-        mailsystem_letter_template_manage:
+        mailsystem_letter_template:
             label: 'mailsystem.letter_template.menu.label'
             route: 'mailsystem_letter_template_index'
             extras:
-                position: 20
+                position: 110
                 routes: ['mailsystem_letter_template_*']
 
     tree:
         application_menu:
             children:
-                mailsystem_letter_tab:
+                marketing_tab:
                     children:
-                        mailsystem_letter_template_manage: ~
-                        mailsystem_letter_manage: ~
+                        mailsystem_letter_template: ~
+                        mailsystem_letter: ~
 
 oro_titles:
     mailsystem_letter_index: ~
