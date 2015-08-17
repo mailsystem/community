@@ -1,7 +1,0 @@
-Mailsystem\Bundle\RecipientBundle\Entity\Recipient:
-    properties:
-        email:
-            - NotBlank: ~
-            - Length:
-                max: 255
-            - Email: ~

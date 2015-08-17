@@ -1,2 +1,0 @@
-bundles:
-    - { name: Mailsystem\Bundle\RecipientBundle\MailsystemRecipientBundle, priority: 120 }

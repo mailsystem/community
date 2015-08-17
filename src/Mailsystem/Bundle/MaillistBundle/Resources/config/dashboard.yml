@@ -1,8 +1,0 @@
-oro_dashboard_config:
-    widgets:
-        recent_maillists:
-            label:       Recent Maillists
-            route:       dashboard_recent_maillists
-            acl:         mailsystem_maillist_view
-            description: mailsystem.maillist.dashboard.recent_maillists.description
-            icon:   bundles/orocalendar/img/my_calendar.png
