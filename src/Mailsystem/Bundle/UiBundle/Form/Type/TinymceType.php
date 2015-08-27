@@ -49,18 +49,20 @@ class TinymceType extends AbstractType
      * @var array
      */
     protected $toolbars = [
-        self::TOOLBAR_SMALL
-                        => ['undo redo | bold italic underline | bullist numlist link'],
-        self::TOOLBAR_DEFAULT
-                        => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
-        self::TOOLBAR_LARGE
-                        => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
-        self::TOOLBAR_FULL
-                        => [
+        self::TOOLBAR_SMALL => [
+            'undo redo | bold italic underline | bullist numlist link'
+        ],
+        self::TOOLBAR_DEFAULT => [
+            'undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'
+        ],
+        self::TOOLBAR_LARGE => [
+                'undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'
+        ],
+        self::TOOLBAR_FULL => [
             'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |
             styleselect formatselect fontselect fontsizeselect | cut copy paste | bullist numlist |
             outdent indent blockquote | undo redo | link unlink anchor image media | insertdatetime preview |
-            forecolor backcolor | hr removeformat | subscript superscript | table | code',
+            forecolor backcolor | hr removeformat | subscript superscript | table | code'
         ],
     ];
 
@@ -104,27 +106,27 @@ class TinymceType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $defaultWysiwygOptions = [
-            'plugins'            => ['textcolor', 'code', 'link', 'image', 'table', 'hr', 'preview', 'media'],
-            'toolbar_type'       => self::TOOLBAR_FULL,
-            'skin_url'           => 'bundles/oroform/css/tinymce',
-            'valid_elements'     => implode(',', $this->htmlTagProvider->getAllowedElements()),
-            'menubar'            => false,
-            'statusbar'          => false,
-            'relative_urls'      => false,
+            'plugins' => ['textcolor', 'code', 'link', 'image', 'table', 'hr', 'preview', 'media'],
+            'toolbar_type' => self::TOOLBAR_FULL,
+            'skin_url' => 'bundles/oroform/css/tinymce',
+            'valid_elements' => implode(',', $this->htmlTagProvider->getAllowedElements()),
+            'menubar' => false,
+            'statusbar' => false,
+            'relative_urls' => false,
             'remove_script_host' => false,
-            'convert_urls'       => true,
-            'width'              => 850,
-            'height'             => 500,
+            'convert_urls' => true,
+            'width' => 850,
+            'height' => 500,
         ];
 
         $defaults = [
-            'random_id'       => true,
+            'random_id' => true,
             'wysiwyg_enabled' => (bool)$this->configManager->get('oro_form.wysiwyg_enabled'),
             'wysiwyg_options' => $defaultWysiwygOptions,
-            'page-component'  => [
-                'module'  => 'oroui/js/app/components/view-component',
+            'page-component' => [
+                'module' => 'oroui/js/app/components/view-component',
                 'options' => [
-                    'view'        => 'oroform/js/app/views/wysiwig-editor/wysiwyg-editor-view',
+                    'view' => 'oroform/js/app/views/wysiwig-editor/wysiwyg-editor-view',
                     'content_css' => 'bundles/oroform/css/wysiwyg-editor.css',
                 ],
             ],
@@ -148,7 +150,7 @@ class TinymceType extends AbstractType
 
                     return $wysiwygOptions;
                 },
-                'attr'            => function (Options $options, $attr) {
+                'attr' => function (Options $options, $attr) {
                     $pageComponent = $options->get('page-component');
                     $wysiwygOptions = (array)$options->get('wysiwyg_options');
 
