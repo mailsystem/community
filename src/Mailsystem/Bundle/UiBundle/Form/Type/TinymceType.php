@@ -49,12 +49,14 @@ class TinymceType extends AbstractType
      * @var array
      */
     protected $toolbars = [
-        self::TOOLBAR_SMALL => ['undo redo | bold italic underline | bullist numlist link'],
+        self::TOOLBAR_SMALL
+                        => ['undo redo | bold italic underline | bullist numlist link'],
         self::TOOLBAR_DEFAULT
-                            => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
+                        => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
         self::TOOLBAR_LARGE
-                            => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
-        self::TOOLBAR_FULL  => [
+                        => ['undo redo | bold italic underline | forecolor backcolor | bullist numlist | link | code'],
+        self::TOOLBAR_FULL
+                        => [
             'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |
             styleselect formatselect fontselect fontsizeselect | cut copy paste | bullist numlist |
             outdent indent blockquote | undo redo | link unlink anchor image media | insertdatetime preview |
