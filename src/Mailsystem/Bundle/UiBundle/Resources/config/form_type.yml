@@ -4,5 +4,11 @@ parameters:
 services:
     base.form.type.tinymce:
         class: %mailsystem_tinymce_type.class%
+        arguments:
+            - @oro_config.user
+            - @oro_form.provider.html_tag_provider
+            - %kernel.cache_dir%
+        calls:
+            - [setAssetHelper, ["@?templating.helper.assets="]]
         tags:
             - { name: form.type, alias: tinymce }
