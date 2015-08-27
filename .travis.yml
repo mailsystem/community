@@ -16,8 +16,7 @@ before_script:
   - phpenv rehash
   - composer self-update
   - phpenv config-add travis.php.ini
-  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist
-  - mysql -uroot -e 'create database mailsystem_app;'
+  - composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist --no-dev
 
 script:
   - mkdir -p build/logs
