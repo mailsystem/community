@@ -1,0 +1,28 @@
+config:
+    shim:
+        'tinymce/plugins/image/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+        'tinymce/plugins/table/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+        'tinymce/plugins/hr/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+        'tinymce/plugins/preview/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+        'tinymce/plugins/media/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+        'tinymce/plugins/insertdatetime/plugin.min':
+            deps:
+                - 'tinymce/tinymce.min'
+build:
+    paths:
+        'tinymce/plugins/image/plugin.min': 'empty:'
+        'tinymce/plugins/table/plugin.min': 'empty:'
+        'tinymce/plugins/hr/plugin.min': 'empty:'
+        'tinymce/plugins/preview/plugin.min': 'empty:'
+        'tinymce/plugins/media/plugin.min': 'empty:'
+        'tinymce/plugins/insertdatetime/plugin.min': 'empty:'

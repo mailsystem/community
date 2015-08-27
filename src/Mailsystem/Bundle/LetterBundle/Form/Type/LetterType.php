@@ -40,7 +40,6 @@ class LetterType extends AbstractType
             [
                 'required' => true,
                 'label'    => 'mailsystem.letter.body.label',
-
             ]
         );
         $builder->add(

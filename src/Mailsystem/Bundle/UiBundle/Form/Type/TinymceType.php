@@ -58,7 +58,7 @@ class TinymceType extends AbstractType
             'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |
             styleselect formatselect fontselect fontsizeselect | cut copy paste | bullist numlist |
             outdent indent blockquote | undo redo | link unlink anchor image media | insertdatetime preview |
-            forecolor backcolor | hr removeformat | subscript superscript | code',
+            forecolor backcolor | hr removeformat | subscript superscript | table | code',
         ],
     ];
 
@@ -102,7 +102,7 @@ class TinymceType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $defaultWysiwygOptions = [
-            'plugins'            => ['textcolor', 'code', 'link'],
+            'plugins'            => ['textcolor', 'code', 'link', 'image', 'table', 'hr', 'preview', 'media'],
             'toolbar_type'       => self::TOOLBAR_FULL,
             'skin_url'           => 'bundles/oroform/css/tinymce',
             'valid_elements'     => implode(',', $this->htmlTagProvider->getAllowedElements()),
@@ -111,8 +111,8 @@ class TinymceType extends AbstractType
             'relative_urls'      => false,
             'remove_script_host' => false,
             'convert_urls'       => true,
-            'width'              => 800,
-            'height'             => 350,
+            'width'              => 850,
+            'height'             => 500,
         ];
 
         $defaults = [

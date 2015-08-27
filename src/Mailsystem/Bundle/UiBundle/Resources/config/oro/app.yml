@@ -1,0 +1,26 @@
+assetic:
+    assets:
+        tinymce_image:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/image/plugin.min.js
+            output: bundles/tinymce/plugins/image/plugin.min.js
+        tinymce_table:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/table/plugin.min.js
+            output: bundles/tinymce/plugins/table/plugin.min.js
+        tinymce_hr:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/hr/plugin.min.js
+            output: bundles/tinymce/plugins/hr/plugin.min.js
+        tinymce_preview:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/preview/plugin.min.js
+            output: bundles/tinymce/plugins/preview/plugin.min.js
+        tinymce_media:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/media/plugin.min.js
+            output: bundles/tinymce/plugins/media/plugin.min.js
+        tinymce_insertdatetime:
+            inputs:
+                - %kernel.root_dir%/../vendor/tinymce/tinymce/plugins/insertdatetime/plugin.min.js
+            output: bundles/tinymce/plugins/insertdatetime/plugin.min.js
