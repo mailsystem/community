@@ -116,7 +116,7 @@ class TinymceType extends AbstractType
             'remove_script_host' => false,
             'convert_urls' => true,
             'width' => 950,
-            'height' => 600,
+            'height' => 550,
         ];
 
         $defaults = [

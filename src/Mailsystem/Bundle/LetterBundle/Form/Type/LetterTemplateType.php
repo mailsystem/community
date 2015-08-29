@@ -32,7 +32,10 @@ class LetterTemplateType extends AbstractType implements CustomLayoutFormInterfa
             'text',
             [
                 'required' => true,
-                'label' => 'mailsystem.letter_template.name.label'
+                'label' => 'mailsystem.letter_template.name.label',
+                'attr' => [
+                    'style' => 'width:177%;'
+                ]
             ]
         );
         $builder->add(
@@ -40,7 +43,10 @@ class LetterTemplateType extends AbstractType implements CustomLayoutFormInterfa
             'textarea',
             [
                 'required' => true,
-                'label' => 'mailsystem.letter_template.body.label'
+                'label' => 'mailsystem.letter_template.body.label',
+                'attr' => [
+                    'style' => 'width:177%;height:550px;'
+                ]
             ]
         );
         $builder->add(

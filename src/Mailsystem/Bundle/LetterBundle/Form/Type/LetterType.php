@@ -32,6 +32,9 @@ class LetterType extends AbstractType
             [
                 'required'        => true,
                 'label'           => 'mailsystem.letter.subject.label',
+                'attr'=>[
+                    'style' => 'width: 177%;'
+                ]
             ]
         );
         $builder->add(
