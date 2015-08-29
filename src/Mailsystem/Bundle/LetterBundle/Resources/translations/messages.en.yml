@@ -5,8 +5,8 @@ mailsystem:
         description: This widget displays recent letters
         view_all: View All
     menu:
-      tab: Letters
-      label: Letters Management
+      tab: tab_activities
+      label: Letters
     entity_label: Letter
     entity_plural_label: Letters
     entity:
@@ -29,8 +29,8 @@ mailsystem:
         description: This widget displays recent letter templates
         view_all: View All
     menu:
-      tab: Letters
-      label: Letter Templates Management
+      tab: tab_activities
+      label: Letter Templates
     entity_label: Letter Template
     entity_plural_label: Letter Templates
     entity:

@@ -37,7 +37,7 @@ class LetterTemplateType extends AbstractType implements CustomLayoutFormInterfa
         );
         $builder->add(
             'body',
-            'tinymce',
+            'textarea',
             [
                 'required' => true,
                 'label' => 'mailsystem.letter_template.body.label'
