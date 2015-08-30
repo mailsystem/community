@@ -12,6 +12,7 @@ env:
   - SYMFONY_VERSION=2.3.*
 
 before_script:
+  - mysql -uroot -e 'create database oro_crm;'
   - pear install PHP_CodeSniffer
   - phpenv rehash
   - composer self-update
