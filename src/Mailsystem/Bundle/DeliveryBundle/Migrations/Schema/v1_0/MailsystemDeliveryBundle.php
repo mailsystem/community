@@ -60,7 +60,7 @@ class MailsystemDeliveryBundle implements Migration
      */
     public static function foreignKeys(Schema $schema)
     {
-        /** Generate foreign keys for table mailsystem_letter **/
+        /** Generate foreign keys for table ms_email_campaign **/
         $table = $schema->getTable('ms_email_campaign');
         $table->addForeignKeyConstraint(
             $schema->getTable('orocrm_contact_group'),
