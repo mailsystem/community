@@ -145,16 +145,6 @@ class Letter extends ExtendLetter
     protected $updatedAt;
 
     /**
-     * __toString()
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string)$this->subject;
-    }
-
-    /**
      * Get Id
      *
      * @return int|null
