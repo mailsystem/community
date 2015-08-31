@@ -16,7 +16,6 @@
     }
   ],
   "require": {
-    "akeneo/batch-bundle": "0.3",
     "oro/platform": "1.7.5",
     "doctrine/data-fixtures": "1.0.0",
     "debesha/doctrine-hydration-profiler-bundle": "1.1.3",
