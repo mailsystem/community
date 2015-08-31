@@ -158,16 +158,6 @@ class LetterTemplate
     protected $updatedAt;
 
     /**
-     * __toString()
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string)$this->name;
-    }
-
-    /**
      * Get Id
      *
      * @return int|null
