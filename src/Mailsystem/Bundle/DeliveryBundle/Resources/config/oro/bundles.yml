@@ -1,0 +1,2 @@
+bundles:
+    - { name: Mailsystem\Bundle\DeliveryBundle\MailsystemDeliveryBundle, priority: 500 }
