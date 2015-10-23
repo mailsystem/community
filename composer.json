@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "oro/crm": "1.8.2",
+    "oro/crm": "1.8.*",
     "satooshi/php-coveralls": "dev-master"
   },
   "minimum-stability": "dev",
