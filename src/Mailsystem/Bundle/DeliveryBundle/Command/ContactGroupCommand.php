@@ -77,5 +77,4 @@ class ContactGroupCommand extends CommandAbstract
 
         $this->mailer->send($message);
     }
-
 }
