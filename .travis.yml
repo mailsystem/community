@@ -9,7 +9,7 @@ services:
     - mysql
 
 env:
-  - SYMFONY_VERSION=2.3.*
+  - SYMFONY_VERSION=2.7.*
 
 before_script:
   - mysql -uroot -e 'create database oro_crm;'
