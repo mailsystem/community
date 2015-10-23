@@ -29,7 +29,7 @@ class MailsystemLetterBundle implements Migration, AttachmentExtensionAwareInter
     {
         $this->attachmentExtension->addAttachmentAssociation(
             $schema,
-            'mailsystem_letter', // entity table, e.g. oro_user, orocrm_contact etc.
+            'ms_letter', // entity table, e.g. oro_user, orocrm_contact etc.
             [], // optional, allowed MIME types of attached files, if empty - global configuration will be used
             5 // optional, max allowed file size in megabytes, by default 1 Mb
         );

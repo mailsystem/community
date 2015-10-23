@@ -1,5 +1,11 @@
 oro_menu_config:
     items:
+        mailsystem_tab:
+            label: 'mailsystem.menu.tab'
+            uri: '#'
+            extras:
+                routes: ['mailsystem_*']
+                position: 45
         mailsystem_letter:
             label: 'mailsystem.letter.menu.label'
             route: 'mailsystem_letter_index'
@@ -17,7 +23,7 @@ oro_menu_config:
     tree:
         application_menu:
             children:
-                marketing_tab:
+                mailsystem_tab:
                     children:
                         mailsystem_letter_template: ~
                         mailsystem_letter: ~

@@ -17,8 +17,8 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(
- *      name="mailsystem_letter_template",
- *      indexes={@ORM\Index(name="IDX_MAILSYSTEM_LETTER_TEMPLATE_OWNER",columns={"user_owner_id"})}
+ *      name="ms_letter_template",
+ *      indexes={@ORM\Index(name="IDX_MS_LETTER_TEMPLATE_OWNER",columns={"user_owner_id"})}
  * )
  * @Config(
  *  routeName="mailsystem_letter_template_index",

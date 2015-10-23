@@ -9,6 +9,6 @@ services:
             - @oro_form.provider.html_tag_provider
             - %kernel.cache_dir%
         calls:
-            - [setAssetHelper, ["@?templating.helper.assets="]]
+            - [setAssetHelper, [@assets.packages]]
         tags:
             - { name: form.type, alias: tinymce }

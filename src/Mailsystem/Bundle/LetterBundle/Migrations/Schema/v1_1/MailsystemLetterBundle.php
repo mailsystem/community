@@ -13,19 +13,19 @@ class MailsystemLetterBundle implements Migration
      */
     public function up(Schema $schema, QueryBag $queries)
     {
-        self::mailsystemLetterTemplateTable($schema);
-        self::mailsystemLetterTemplateForeignKeys($schema);
+        self::msLetterTemplateTable($schema);
+        self::msLetterTemplateForeignKeys($schema);
     }
 
     /**
-     * Generate table mailsystem_letter_template
+     * Generate table ms_letter_template
      *
      * @param Schema $schema
      */
-    public static function mailsystemLetterTemplateTable(Schema $schema)
+    public static function msLetterTemplateTable(Schema $schema)
     {
-        /** Generate table mailsystem_letter_template **/
-        $table = $schema->createTable('mailsystem_letter_template');
+        /** Generate table ms_letter_template **/
+        $table = $schema->createTable('ms_letter_template');
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
         $table->addColumn('user_owner_id', 'integer', ['notnull' => false]);
         $table->addColumn('organization_id', 'integer', ['notnull' => false]);
@@ -34,20 +34,20 @@ class MailsystemLetterBundle implements Migration
         $table->addColumn('created_at', 'datetime', []);
         $table->addColumn('updated_at', 'datetime', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
-        $table->addIndex(['user_owner_id'], 'IDX_MAILSYSTEM_LETTER_TEMPLATE_OWNER', []);
-        $table->addIndex(['organization_id'], 'IDX_MAILSYSTEM_LETTER_TEMPLATE_ORGANIZATION', []);
-        /** End of generate table mailsystem_letter_template **/
+        $table->addIndex(['user_owner_id'], 'IDX_MS_LETTER_TEMPLATE_OWNER', []);
+        $table->addIndex(['organization_id'], 'IDX_MS_LETTER_TEMPLATE_ORGANIZATION', []);
+        /** End of generate table ms_letter_template **/
     }
 
     /**
-     * Generate foreign keys for table mailsystem_letter_template
+     * Generate foreign keys for table ms_letter_template
      *
      * @param Schema $schema
      */
-    public static function mailsystemLetterTemplateForeignKeys(Schema $schema)
+    public static function msLetterTemplateForeignKeys(Schema $schema)
     {
-        /** Generate foreign keys for table mailsystem_letter **/
-        $table = $schema->getTable('mailsystem_letter_template');
+        /** Generate foreign keys for table ms_letter_template **/
+        $table = $schema->getTable('ms_letter_template');
         $table->addForeignKeyConstraint(
             $schema->getTable('oro_user'),
             ['user_owner_id'],
@@ -60,6 +60,6 @@ class MailsystemLetterBundle implements Migration
             ['id'],
             ['onDelete' => 'SET NULL', 'onUpdate' => null]
         );
-        /** End of generate foreign keys for table mailsystem_letter_template **/
+        /** End of generate foreign keys for table ms_letter_template **/
     }
 }

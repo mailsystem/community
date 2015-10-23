@@ -13,8 +13,8 @@ class MailsystemLetterBundle implements Migration
      */
     public function up(Schema $schema, QueryBag $queries)
     {
-        self::mailsystemLetterTable($schema);
-        self::mailsystemLetterForeignKeys($schema);
+        self::msLetterTable($schema);
+        self::msLetterForeignKeys($schema);
     }
 
     /**
@@ -22,10 +22,10 @@ class MailsystemLetterBundle implements Migration
      *
      * @param Schema $schema
      */
-    public static function mailsystemLetterTable(Schema $schema)
+    public static function msLetterTable(Schema $schema)
     {
-        /** Generate table mailsystem_letter **/
-        $table = $schema->createTable('mailsystem_letter');
+        /** Generate table ms_letter **/
+        $table = $schema->createTable('ms_letter');
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
         $table->addColumn('user_owner_id', 'integer', ['notnull' => false]);
         $table->addColumn('organization_id', 'integer', ['notnull' => false]);
@@ -36,7 +36,7 @@ class MailsystemLetterBundle implements Migration
         $table->setPrimaryKey(['id']);
         $table->addIndex(['user_owner_id'], 'IDX_MAILSYSTEM_LETTER_OWNER', []);
         $table->addIndex(['organization_id'], 'IDX_MAILSYSTEM_LETTER_ORGANIZATION', []);
-        /** End of generate table mailsystem_letter **/
+        /** End of generate table ms_letter **/
     }
 
     /**
@@ -44,10 +44,10 @@ class MailsystemLetterBundle implements Migration
      *
      * @param Schema $schema
      */
-    public static function mailsystemLetterForeignKeys(Schema $schema)
+    public static function msLetterForeignKeys(Schema $schema)
     {
-        /** Generate foreign keys for table mailsystem_letter **/
-        $table = $schema->getTable('mailsystem_letter');
+        /** Generate foreign keys for table ms_letter **/
+        $table = $schema->getTable('ms_letter');
         $table->addForeignKeyConstraint(
             $schema->getTable('oro_user'),
             ['user_owner_id'],
@@ -60,6 +60,6 @@ class MailsystemLetterBundle implements Migration
             ['id'],
             ['onDelete' => 'SET NULL', 'onUpdate' => null]
         );
-        /** End of generate foreign keys for table mailsystem_letter **/
+        /** End of generate foreign keys for table ms_letter **/
     }
 }

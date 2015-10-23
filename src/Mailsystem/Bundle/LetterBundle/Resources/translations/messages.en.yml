@@ -1,11 +1,13 @@
 mailsystem:
+  menu:
+    tab: Mailsystem
   letter:
     dashboard:
       recent_letters:
         description: This widget displays recent letters
         view_all: View All
     menu:
-      tab: tab_activities
+      tab: tab_mailsystem
       label: Letters
     entity_label: Letter
     entity_plural_label: Letters
@@ -29,7 +31,7 @@ mailsystem:
         description: This widget displays recent letter templates
         view_all: View All
     menu:
-      tab: tab_activities
+      tab: tab_mailsystem
       label: Letter Templates
     entity_label: Letter Template
     entity_plural_label: Letter Templates
