@@ -2,7 +2,6 @@
 namespace Mailsystem\Bundle\DeliveryBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use OroCloudBundle\Service\Cli\Formatter;
 
 abstract class CommandAbstract extends ContainerAwareCommand
 {
