@@ -50,7 +50,7 @@ class ContactGroupCommand extends CommandAbstract
         );
         $this->addArgument(
             'send_from_email',
-            InputArgument:REQUIRED,
+            InputArgument::REQUIRED,
             'Sender email'
         );
     }
